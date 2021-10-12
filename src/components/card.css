@@ -5,11 +5,10 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 350px repeat(5, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 2px;
+	grid-row-gap: 1px;
 }
 .card-container:hover {
-	border: 2px solid var(--primary-color);
+	border: 1px solid var(--primary-color);
 }
 
 .image-container {
@@ -32,6 +31,7 @@
 	grid-area: 3 / 1 / 4 / 2;
 	padding: 0 0.5rem 0 0.5rem;
 	font-family: var(--asset-title-font-family);
+	font-size: small;
 }
 .rating {
 	padding: 0 0.5rem 0 0.5rem;
@@ -50,4 +50,5 @@
 	font-family: var(--asset-title-font-family);
 	font-size: large;
 	text-align: end;
+	line-height: 0.5;
 }
