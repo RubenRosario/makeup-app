@@ -5,7 +5,8 @@ import './cardsContainer.css';
 
 const CardsContainer = ({ currentAssets, loading }) => {
 	if (loading) {
-		return <h1> LOADING ...</h1>;
+		// to be improved
+		return <h1 style={{ height: '100vh' }}> LOADING... Needs improvements</h1>;
 	}
 	return (
 		<div className='cards-container'>
