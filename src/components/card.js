@@ -15,6 +15,7 @@ const Card = ({ asset, loading }) => {
 		description,
 		price,
 		product_colors,
+		product_link,
 		rating,
 	} = asset;
 	return (
@@ -23,10 +24,11 @@ const Card = ({ asset, loading }) => {
 			<Modal
 				isOpen={showModal}
 				onCloseHandler={() => setShowModal(false)}
+				clickHandler={() => window.location.assign(product_link)}
 				header={`${brand} - ${name}`}>
 				<img src={image_link} alt={description} />
 			</Modal>
-
+			{/* card container */}
 			<div className='card-container'>
 				<div className='image-container'>
 					<img
@@ -45,10 +47,11 @@ const Card = ({ asset, loading }) => {
 				<div className='rating'>
 					<ReactStars
 						count={5}
+						size={24}
 						edit={false}
+						isHalf={true}
 						value={rating ? rating : 0}
 						color={'#bfbaba'}
-						size={24}
 						activeColor='#ffd700'
 					/>
 				</div>
