@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 
 import './modal.css';
 
-const Modal = ({ isOpen, onCloseHandler, header, children }) => {
+const Modal = ({ isOpen, onCloseHandler, header, children, clickHandler }) => {
 	if (isOpen) {
 		const content = (
 			<>
@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onCloseHandler, header, children }) => {
 					<header className='modal-header'>{header}</header>
 					<div className='modal-content'>{children}</div>
 					<footer className='modal-footer'>
-						<button onClick={onCloseHandler}>close</button>
+						<button onClick={clickHandler}>Go to Store</button>
 					</footer>
 				</div>
 			</>
