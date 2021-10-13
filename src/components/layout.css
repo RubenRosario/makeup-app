@@ -9,9 +9,21 @@ header {
 	height: 4rem;
 	width: 100%;
 	background-color: var(--primary-color);
+	text-align: center;
+}
+
+.app-title {
+	margin: auto;
+	height: 100%;
+	color: var(--tertiary-color);
+	font-family: var(--asset-title-font-family);
+	font-size: xx-large;
+	line-height: 2;
 }
 footer {
 	height: 1.5rem;
 	width: 100%;
 	background-color: var(--primary-color);
+	color: var(--tertiary-color);
+	text-align: center;
 }

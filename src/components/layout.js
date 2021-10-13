@@ -5,7 +5,9 @@ import './layout.css';
 const Layout = ({ children }) => {
 	return (
 		<div className='layout'>
-			<header>Makeup Store</header>
+			<header>
+				<span className='app-title'>Makeup Store</span>{' '}
+			</header>
 			{children}
 			<footer>© 2021 Ruben Rosario</footer>
 		</div>
