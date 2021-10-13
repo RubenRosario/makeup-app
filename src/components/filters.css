@@ -1,0 +1,35 @@
+.filters-container {
+	padding: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.filters-container input {
+	border: 1px solid var(--primary-color);
+	width: 5rem;
+	height: 2rem;
+}
+
+.price-limits-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 0.5rem;
+}
+
+.filters-container button {
+	background-color: var(--primary-color);
+	color: var(--tertiary-color);
+	width: 5rem;
+	height: 2rem;
+}
+
+.filters-container button:hover {
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
+}
