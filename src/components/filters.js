@@ -55,7 +55,21 @@ const Filters = ({ filterHandler }) => {
 					onChange={handleInputChange}
 				/>
 				<button type='button' onClick={() => filterHandler(inputs)}>
-					Filter
+					Apply Filter
+				</button>
+				<button
+					type='button'
+					className='button-inverse'
+					onClick={() => {
+						filterHandler({});
+						setInputs({
+							brand: '',
+							minPrice: '',
+							maxPrice: '',
+							productType: '',
+						});
+					}}>
+					Clear Filter
 				</button>
 			</div>
 		</form>

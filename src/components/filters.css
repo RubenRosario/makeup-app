@@ -25,7 +25,14 @@
 .filters-container button {
 	background-color: var(--primary-color);
 	color: var(--tertiary-color);
-	width: 5rem;
+	width: 6rem;
+	height: 2rem;
+}
+
+.filters-container button.button-inverse {
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+	width: 6rem;
 	height: 2rem;
 }
 
