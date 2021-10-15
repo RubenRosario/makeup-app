@@ -26,4 +26,42 @@ export function getIndexes(currentPage, assetsPerPage) {
 	return [indexOfFirstAsset, indexOfLastAsset];
 }
 
-export function customFilter() {}
+/**
+ * Returns true if obj matches the criteria defined by filters. Otherwise false.
+ */
+export function customFilter(obj, filters) {
+	return (
+		filterByBrand(obj, filters.brand) &&
+		filterByMinPrice(obj, filters.minPrice) &&
+		filterByMaxPrice(obj, filters.maxPrice) &&
+		filterByProductType(obj, filters.productType)
+	);
+}
+
+/**
+ * returns true is obj's brand equals brand or if no brand is provided
+ */
+function filterByBrand(obj, brand) {
+	return brand ? obj.brand === brand : true;
+}
+
+/**
+ * returns true is obj's price >= min or if no min price is provided
+ */
+function filterByMinPrice(obj, min) {
+	return min ? Number(obj.price) >= Number(min) : true;
+}
+
+/**
+ * returns true is obj's price >= max or if no max price is provided
+ */
+function filterByMaxPrice(obj, max) {
+	return max ? Number(obj.price) <= Number(max) : true;
+}
+
+/**
+ * returns true is obj's product_type equals productType or if no productType is provided
+ */
+function filterByProductType(obj, productType) {
+	return productType ? obj.product_type === productType : true;
+}
