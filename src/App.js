@@ -3,7 +3,7 @@ import axios from 'axios';
 import CardsContainer from './components/cardsContainer';
 import Pagination from './components/pagination';
 import Layout from './components/layout';
-import { compare, getIndexes } from './utils/utils';
+import { compare, getIndexes, customFilter } from './utils/utils';
 import Filters from './components/filters';
 
 import './App.css';
@@ -13,6 +13,8 @@ function App() {
 	const [loading, setLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [assetsPerPage] = useState(10); // hard code 10 assets per page
+	const [filters, setFilters] = useState({});
+	const [currentAssets, setCurrentAssets] = useState([]);
 
 	useEffect(() => {
 		// get data from api on mount
@@ -21,13 +23,13 @@ function App() {
 			const res = await axios.get(
 				'http://makeup-api.herokuapp.com/api/v1/products.json'
 			);
-			const data = res.data;
-			data.sort((obj1, obj2) => compare(obj1, obj2, 'rating', 'desc'));
-			setAssets(data);
+			setAssets(
+				res.data.sort((obj1, obj2) => compare(obj1, obj2, 'rating', 'desc'))
+			);
 			setLoading(false);
 		})();
 
-		// restore the previous state of current page
+		// restore the stored state of current page
 		const storedCurrentPage = JSON.parse(
 			window.localStorage.getItem('currentPage')
 		);
@@ -36,32 +38,40 @@ function App() {
 		}
 	}, []);
 
-	// save current page whenever it changes
+	// store current page whenever it changes
 	useEffect(() => {
 		window.localStorage.setItem('currentPage', currentPage);
 	}, [currentPage]);
 
-	// get the index for the fist and last asset
+	// set current assets whenever assets or filters change
+	useEffect(() => {
+		setCurrentAssets(assets.filter((asset) => customFilter(asset, filters)));
+	}, [assets, filters]);
+
+	// get the index for the first and last assets
 	// then set the assets for the current page
 	const indexes = getIndexes(currentPage, assetsPerPage);
-	const currentAssets = assets.slice(indexes[0], indexes[1]);
 
 	// change pages
 	const changePage = (number) => setCurrentPage(number);
 
 	// Filter list based on brand, price, and/or productType
-	const filterHandler = (filters) => {
-		// not yet implemented
+	const filtersHandler = (filters) => {
+		setFilters(filters);
+		setCurrentPage(1);
 	};
 
 	return (
 		<Layout>
-			<Filters filterHandler={filterHandler} />
-			<CardsContainer currentAssets={currentAssets} loading={loading} />
+			<Filters filterHandler={filtersHandler} />
+			<CardsContainer
+				currentAssets={currentAssets.slice(indexes[0], indexes[1])}
+				loading={loading}
+			/>
 			<Pagination
 				currentPage={currentPage}
 				assetsPerPage={assetsPerPage}
-				totalAssets={assets.length}
+				totalAssets={currentAssets.length}
 				paginate={changePage}
 			/>
 		</Layout>
