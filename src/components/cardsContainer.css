@@ -1,8 +1,16 @@
 .cards-container {
 	width: 100%;
+	height: 100vh;
 	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 2rem 1rem;
+}
+
+.cards-container .no-item-found {
+	color: var(--secondary-color);
+	font-family: var(--asset-title-font-family);
+	font-size: 5rem;
+	text-align: center;
 }

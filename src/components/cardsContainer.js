@@ -10,9 +10,11 @@ const CardsContainer = ({ currentAssets, loading }) => {
 	}
 	return (
 		<div className='cards-container'>
-			{currentAssets.map((asset) => (
-				<Card asset={asset} loading={loading} />
-			))}
+			{currentAssets.length !== 0 ? (
+				currentAssets.map((asset) => <Card asset={asset} loading={loading} />)
+			) : (
+				<p className='no-item-found'>No item found.</p>
+			)}
 		</div>
 	);
 };
