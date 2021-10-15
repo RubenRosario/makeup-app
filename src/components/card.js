@@ -29,13 +29,9 @@ const Card = ({ asset, loading }) => {
 				<img src={image_link} alt={description} />
 			</Modal>
 			{/* card container */}
-			<div className='card-container'>
+			<div className='card-container' onClick={() => setShowModal(true)}>
 				<div className='image-container'>
-					<img
-						src={image_link}
-						alt={description}
-						onClick={() => setShowModal(true)}
-					/>
+					<img src={image_link} alt={description} />
 				</div>
 				<div className='brand'>{brand}</div>
 				<div className='name'>{name}</div>
