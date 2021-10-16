@@ -2,16 +2,13 @@ import React from 'react';
 import Card from './card';
 
 import './cardsContainer.css';
+import LoadingIndicator from './loadingIndicator';
 
-const CardsContainer = ({ currentAssets, loading }) => {
-	if (loading) {
-		// to be improved
-		return <h1 style={{ height: '100vh' }}> LOADING... Needs improvements</h1>;
-	}
+const CardsContainer = ({ currentAssets }) => {
 	return (
 		<div className='cards-container'>
 			{currentAssets.length !== 0 ? (
-				currentAssets.map((asset) => <Card asset={asset} loading={loading} />)
+				currentAssets.map((asset) => <Card asset={asset} />)
 			) : (
 				<p className='no-item-found'>No item found.</p>
 			)}

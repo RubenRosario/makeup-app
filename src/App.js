@@ -5,6 +5,7 @@ import Pagination from './components/pagination';
 import Layout from './components/layout';
 import { compare, getIndexes, customFilter } from './utils/utils';
 import Filters from './components/filters';
+import LoadingIndicator from './components/loadingIndicator';
 
 import './App.css';
 
@@ -63,17 +64,22 @@ function App() {
 
 	return (
 		<Layout>
-			<Filters filterHandler={filtersHandler} />
-			<CardsContainer
-				currentAssets={currentAssets.slice(indexes[0], indexes[1])}
-				loading={loading}
-			/>
-			<Pagination
-				currentPage={currentPage}
-				assetsPerPage={assetsPerPage}
-				totalAssets={currentAssets.length}
-				paginate={changePage}
-			/>
+			{loading ? (
+				<LoadingIndicator />
+			) : (
+				<>
+					<Filters filterHandler={filtersHandler} />
+					<CardsContainer
+						currentAssets={currentAssets.slice(indexes[0], indexes[1])}
+					/>
+					<Pagination
+						currentPage={currentPage}
+						assetsPerPage={assetsPerPage}
+						totalAssets={currentAssets.length}
+						paginate={changePage}
+					/>
+				</>
+			)}
 		</Layout>
 	);
 }
