@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './card';
 
 import './cardsContainer.css';
-import LoadingIndicator from './loadingIndicator';
 
 const CardsContainer = ({ currentAssets }) => {
 	return (
