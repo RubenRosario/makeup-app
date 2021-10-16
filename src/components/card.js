@@ -5,7 +5,7 @@ import Modal from './modal';
 
 import './card.css';
 
-const Card = ({ asset, loading }) => {
+const Card = ({ asset }) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const {
