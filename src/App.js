@@ -37,12 +37,23 @@ function App() {
 		if (storedCurrentPage) {
 			setCurrentPage(storedCurrentPage);
 		}
+
+		// restore the stored filters
+		const storedFilters = JSON.parse(window.localStorage.getItem('filters'));
+		if (storedFilters) {
+			setFilters(storedFilters);
+		}
 	}, []);
 
 	// store current page whenever it changes
 	useEffect(() => {
 		window.localStorage.setItem('currentPage', currentPage);
 	}, [currentPage]);
+
+	// store filters whenever they change
+	useEffect(() => {
+		window.localStorage.setItem('filters', JSON.stringify(filters));
+	}, [filters]);
 
 	// set current assets whenever assets or filters change
 	useEffect(() => {
