@@ -27,6 +27,7 @@ const Filters = ({ filterHandler }) => {
 					placeholder='Brand Name'
 					value={inputs.brand}
 					onChange={handleInputChange}
+					autoComplete='off'
 				/>
 				<div className='price-limits-container'>
 					<input
@@ -53,6 +54,7 @@ const Filters = ({ filterHandler }) => {
 					placeholder='Prod. Type'
 					value={inputs.productType}
 					onChange={handleInputChange}
+					autoComplete='off'
 				/>
 				<button type='button' onClick={() => filterHandler(inputs)}>
 					Apply Filter
