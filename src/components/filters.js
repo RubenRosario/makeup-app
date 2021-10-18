@@ -29,6 +29,15 @@ const Filters = ({ filterHandler }) => {
 					onChange={handleInputChange}
 					autoComplete='off'
 				/>
+				<input
+					type='text'
+					name='productType'
+					className='product-type-filter'
+					placeholder='Prod. Type'
+					value={inputs.productType}
+					onChange={handleInputChange}
+					autoComplete='off'
+				/>
 				<div className='price-limits-container'>
 					<input
 						type='number'
@@ -47,32 +56,25 @@ const Filters = ({ filterHandler }) => {
 						onChange={handleInputChange}
 					/>
 				</div>
-				<input
-					type='text'
-					name='productType'
-					className='product-type-filter'
-					placeholder='Prod. Type'
-					value={inputs.productType}
-					onChange={handleInputChange}
-					autoComplete='off'
-				/>
-				<button type='button' onClick={() => filterHandler(inputs)}>
-					Apply Filter
-				</button>
-				<button
-					type='button'
-					className='button-inverse'
-					onClick={() => {
-						filterHandler({});
-						setInputs({
-							brand: '',
-							minPrice: '',
-							maxPrice: '',
-							productType: '',
-						});
-					}}>
-					Clear Filter
-				</button>
+				<div className='buttons-container'>
+					<button type='button' onClick={() => filterHandler(inputs)}>
+						Apply Filter
+					</button>
+					<button
+						type='button'
+						className='button-inverse'
+						onClick={() => {
+							filterHandler({});
+							setInputs({
+								brand: '',
+								minPrice: '',
+								maxPrice: '',
+								productType: '',
+							});
+						}}>
+						Clear Filter
+					</button>
+				</div>
 			</div>
 		</form>
 	);

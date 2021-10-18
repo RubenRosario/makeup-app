@@ -5,19 +5,18 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 2rem;
+	gap: 1rem;
 }
 
 .filters-container input {
-	border: 1px solid var(--primary-color);
-	box-shadow: 0px 0px 4px 0px rgb(183 183 183 / 88%);
+	border: 1px solid var(--secondary-color);
 	outline: none;
 	width: 5rem;
 	height: 2rem;
 }
 
 .filters-container input:focus {
-	border: 2px solid var(--primary-color);
+	border: 1px solid var(--primary-color);
 }
 
 .price-limits-container {
@@ -25,7 +24,14 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	gap: 0.5rem;
+	gap: 1rem;
+}
+.buttons-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1rem;
 }
 
 .filters-container button {
@@ -33,16 +39,17 @@
 	color: var(--tertiary-color);
 	width: 6rem;
 	height: 2rem;
+	border: 1px solid var(--secondary-color);
 }
 
 .filters-container button.button-inverse {
-	background-color: var(--tertiary-color);
-	color: var(--primary-color);
+	background-color: var(--accent-color);
+	color: var(--tertiary-color);
 	width: 6rem;
 	height: 2rem;
 }
 
 .filters-container button:hover {
-	background-color: var(--secondary-color);
+	background-color: var(--tertiary-color);
 	color: var(--primary-color);
 }
