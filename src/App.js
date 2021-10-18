@@ -7,6 +7,7 @@ import { compare, getIndexes, customFilter } from './utils/utils';
 import Filters from './components/filters';
 import LoadingIndicator from './components/loadingIndicator';
 
+import 'normalize.css';
 import './App.css';
 
 function App() {
