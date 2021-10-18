@@ -36,9 +36,12 @@
 .rating {
 	padding: 0 0.5rem 0 0.5rem;
 	grid-area: 4 / 1 / 5 / 2;
+	line-height: 1.5;
 }
 .rating span {
 	margin-left: 5px;
+	font-size: large;
+	font-family: var(--asset-title-font-family);
 }
 
 .color {
