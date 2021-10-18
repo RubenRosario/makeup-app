@@ -79,7 +79,7 @@ function App() {
 				<LoadingIndicator />
 			) : (
 				<>
-					<Filters filterHandler={filtersHandler} />
+					<Filters filterHandler={filtersHandler} storedFilters={filters} />
 					<CardsContainer
 						currentAssets={currentAssets.slice(indexes[0], indexes[1])}
 					/>

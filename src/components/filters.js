@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 
 import './filters.css';
 
-const Filters = ({ filterHandler }) => {
-	const [inputs, setInputs] = useState({
-		brand: '',
-		minPrice: '',
-		maxPrice: '',
-		productType: '',
-	});
+const Filters = ({ filterHandler, storedFilters }) => {
+	const [inputs, setInputs] = useState(
+		storedFilters || {
+			brand: '',
+			minPrice: '',
+			maxPrice: '',
+			productType: '',
+		}
+	);
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
