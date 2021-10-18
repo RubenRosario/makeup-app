@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ColorPalette from './colorPalette';
-import ReactStars from 'react-rating-stars-component';
+import StarRatings from 'react-star-ratings';
 import Modal from './modal';
 
 import './card.css';
@@ -41,15 +41,13 @@ const Card = ({ asset }) => {
 					<div></div>
 				)}
 				<div className='rating'>
-					<ReactStars
-						count={5}
-						size={24}
-						edit={false}
-						isHalf={true}
-						value={rating ? rating : 0}
-						color={'#bfbaba'}
-						activeColor='#ffd700'
+					<StarRatings
+						rating={rating ? rating : 0}
+						starRatedColor='rgb(246,187,65)'
+						starDimension='25px'
+						starSpacing='2px'
 					/>
+					<span>{rating}</span>
 				</div>
 				<div className='price'>${price}</div>
 			</div>
