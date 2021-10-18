@@ -30,7 +30,7 @@ function App() {
 			setLoading(false);
 		})();
 
-		// restore the stored state of current page
+		// retrieve the stored state of current page
 		const storedCurrentPage = JSON.parse(
 			window.localStorage.getItem('currentPage')
 		);
@@ -38,7 +38,7 @@ function App() {
 			setCurrentPage(storedCurrentPage);
 		}
 
-		// restore the stored filters
+		// retrieve the stored filters
 		const storedFilters = JSON.parse(window.localStorage.getItem('filters'));
 		if (storedFilters) {
 			setFilters(storedFilters);
